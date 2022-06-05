@@ -8,6 +8,8 @@ const PLANET_BASE_SIZE := 96
 const MOON_BASE_SIZE := 32
 const ASTEROID_BASE_SIZE := 16
 
+var start_time
+
 # Used to calculate the 8 neighbors around any one sector.
 const NEIGHBORS := [
 	Vector2(1, 0),
@@ -65,6 +67,7 @@ func _ready() -> void:
 ## This creates our world's layers, each one smaller than the one before it, but
 ## all contained within the player's view (normally.)
 func generate() -> void:
+	start_time = OS.get_ticks_msec()
 	var index := -1
 	for layer in LAYERS:
 		index += 1
@@ -92,6 +95,7 @@ func generate() -> void:
 					"asteroids":
 						_generate_asteroids_at(sector)
 	var end_time = OS.get_ticks_msec()
+	print((end_time - start_time))
 	update()
 
 
