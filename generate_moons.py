@@ -26,11 +26,16 @@ def _generate_moons_at(sector: tuple[float, float],
             random_offset = (random_rotated[0] * scale * planet_base_size * 3.0,
                              random_rotated[1] * scale * planet_base_size * 3.0)
             moon_count += 1
-            sectors[str(sector)].update({
-                "moons": {"position": (planet["position"][0] + random_offset[0],
-                                       planet["position"][1] + random_offset[1]),
-                          "scale": planet["scale"] / 3.0}
-            })
+            if "moons" in sectors[str(sector)]:
+                sectors[str(sector)]["moons"].append(
+                    {"position": (planet["position"][0] + random_offset[0], planet["position"][1] + random_offset[1]),
+                     "scale": planet["scale"] / 3.0})
+            else:
+                sectors[str(sector)].update({
+                    "moons": {"position": (planet["position"][0] + random_offset[0],
+                                           planet["position"][1] + random_offset[1]),
+                              "scale": planet["scale"] / 3.0}
+                })
 
 
 def rotate_random(vec: tuple[float, float]):
