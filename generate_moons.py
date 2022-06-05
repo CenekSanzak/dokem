@@ -5,7 +5,7 @@ PI = 3.141593
 
 
 def _generate_moons_at(sector: (float, float),
-                       sectors={"(-160.0, -160.0)": {"planet": {"position": (328923.2, 3829.1), "scale": 1.0}}},
+                       sectors={},
                        start_seed="world generation",
                        moon_generation_chance=1.1 / 3.0,
                        max_moon_count=5,
@@ -48,4 +48,4 @@ def make_seed_for(_x_id: int, _y_id: int, start_seed, custom_data=""):
     return new_seed.__hash__()
 
 # uncomment to test
-# _generate_moons_at(sector=(-160.0, -160.0))
+# _generate_moons_at(sector=(-160.0, -160.0), sectors={"(-160.0, -160.0)": {"planet": {"position": (328923.2, 3829.1), "scale": 1.0}}})
