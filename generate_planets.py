@@ -10,10 +10,10 @@ def _generate_planets_at(sector: Tuple[float, float] = (0, 0), sectors={}, plane
         area = _calculate_triangle_area(vertices[0], vertices[1], vertices[2])
 
         if area < planet_generation_area_threshold:
-            sectors[str(sector)] = {"planet": {
+            sectors[str(sector)]["planet"] = {
                 "position": _calculate_triangle_epicenter(vertices[0], vertices[1], vertices[2]),
                 "scale": 0.5 + area / (planet_generation_area_threshold / 2.0)
-            }}
+            }
 
 
 ## Returns the area of a triangle.
@@ -30,3 +30,4 @@ def _calculate_triangle_epicenter(a: Tuple[float, float], b: Tuple[float, float]
 if __name__ == "__main__":
     sectors = {"(-160.0, -160.0)": {"seeds": [(328923.2, 3829.1), (328923.2, 3829.1), (328923.2, 3829.1)]}}
     _generate_planets_at(sector=(-160.0, -160.0), sectors=sectors)
+    print(sectors)
