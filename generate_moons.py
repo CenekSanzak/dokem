@@ -32,9 +32,9 @@ def _generate_moons_at(sector: (float, float),
                      "scale": planet["scale"] / 3.0})
             else:
                 sectors[str(sector)].update({
-                    "moons": {"position": (planet["position"][0] + random_offset[0],
-                                           planet["position"][1] + random_offset[1]),
-                              "scale": planet["scale"] / 3.0}
+                    "moons": [{"position": (planet["position"][0] + random_offset[0],
+                                            planet["position"][1] + random_offset[1]),
+                              "scale": planet["scale"] / 3.0}]
                 })
 
 
