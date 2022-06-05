@@ -10,7 +10,7 @@ def _generate_seeds_at(sector: (float, float),
     _sector_margin = sector_size * sector_margin_proportion
 
     if str(sector) in sectors:
-        if "seeds" in sector:
+        if "seeds" in sectors[str(sector)]:
             return
 
     random.seed(make_seed_for(sector[0], sector[1], start_seed, "seeds"))
@@ -29,7 +29,6 @@ def _generate_seeds_at(sector: (float, float),
                          random.uniform(top_left[1], bottom_right[1]))
     seeds.append(seed_position)
     sectors.update({str(sector): {"seeds": seeds}})
-    print(sectors)
 
 
 def make_seed_for(_x_id: int, _y_id: int, start_seed, custom_data=""):
