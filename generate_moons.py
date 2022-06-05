@@ -4,7 +4,7 @@ import random
 PI = 3.141593
 
 
-def _generate_moons_at(sector: (float, float),
+def _generate_moons_at(sector: tuple[float, float],
                        sectors={},
                        start_seed="world generation",
                        moon_generation_chance=1.1 / 3.0,
@@ -38,7 +38,7 @@ def _generate_moons_at(sector: (float, float),
                 })
 
 
-def rotate_random(vec: (float, float)):
+def rotate_random(vec: tuple[float, float]):
     angle = random.uniform(-PI, PI)
     return (vec[0] * math.cos(angle) - vec[1] * math.sin(angle),
             vec[0] * math.sin(angle) + vec[1] * math.cos(angle))

@@ -1,4 +1,4 @@
-def _generate_travel_lanes_at(sector: (float, float),
+def _generate_travel_lanes_at(sector: tuple[float, float],
                               sectors={}):
     neighbors = [(1, 0),
                  (1, 1),
@@ -42,6 +42,10 @@ def _generate_travel_lanes_at(sector: (float, float),
 
 
 # uncomment to test
-# _generate_travel_lanes_at(sector=(-160.0, -160.0),
-#                          sectors={"(-160.0, -160.0)": {"planet": {"position": (328923.2, 3829.1), "scale": 1.0}},
-#                                   "(-160.0, -159.0)": {"planet": {"position": (43824.5, 12.0), "scale": 0.5}}})
+
+if __name__ == "__main__":
+    sectors={"(-160.0, -160.0)": {"planet": {"position": (328923.2, 3829.1), "scale": 1.0}},
+                                    "(-160.0, -159.0)": {"planet": {"position": (43824.5, 12.0), "scale": 0.5}}}
+    _generate_travel_lanes_at(sector=(-160.0, -160.0),
+                            sectors=sectors)
+    print(sectors)

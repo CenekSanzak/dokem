@@ -1,4 +1,4 @@
-def _generate_planets_at(sector: (int, int)=(0,0), sectors={}, planet_generation_area_threshold=5000.0):
+def _generate_planets_at(sector: tuple[float, float]=(0,0), sectors={}, planet_generation_area_threshold=5000.0):
 	if "planet" in sectors[str(sector)]:
 		return
 
@@ -18,12 +18,12 @@ def _generate_planets_at(sector: (int, int)=(0,0), sectors={}, planet_generation
 
 
 ## Returns the area of a triangle.
-def _calculate_triangle_area(a: (int, int), b: (int, int), c: (int, int)) -> float:
+def _calculate_triangle_area(a: tuple[float, float], b: tuple[float, float], c: tuple[float, float]) -> float:
 	return abs(a[0] * (b[1] - c[1]) + b[0] * (c[1] - a[1]) + c[0] * (a[1] - b[1])) / 2.0
 
 
 
-def _calculate_triangle_epicenter(a: (int, int), b: (int, int), c: (int, int)) -> (int, int):
+def _calculate_triangle_epicenter(a: tuple[float, float], b: tuple[float, float], c: tuple[float, float]) -> tuple[float, float]:
 	return (a[0] + b[0] + c[0]) / 3.0, (a[1] + b[1] + c[1]) / 3.0
 
 

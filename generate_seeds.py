@@ -1,7 +1,7 @@
 import random
 
 
-def _generate_seeds_at(sector: (float, float),
+def _generate_seeds_at(sector: tuple[float, float],
                        sectors={},
                        start_seed="world generation",
                        sector_size=1000.0,
