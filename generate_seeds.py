@@ -9,8 +9,6 @@ def _generate_seeds_at(sector: (float, float),
     _half_sector_size = sector_size / 2
     _sector_margin = sector_size * sector_margin_proportion
 
-    print(sector)
-    print(sectors)
     if str(sector) in sectors:
         if "seeds" in sector:
             return
