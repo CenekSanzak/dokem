@@ -37,5 +37,8 @@ def make_seed_for(_x_id: int, _y_id: int, start_seed, custom_data=""):
         new_seed = new_seed + custom_data
     return new_seed.__hash__()
 
-# uncomment to test
-# _generate_seeds_at(sector=(-160.0, -160.0))
+# Test code
+if __name__ == "__main__":
+    sectors={}
+    _generate_seeds_at(sector=(-160.0, -160.0), sectors=sectors)
+    print(sectors)

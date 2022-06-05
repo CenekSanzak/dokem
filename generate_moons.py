@@ -45,5 +45,8 @@ def make_seed_for(_x_id: int, _y_id: int, start_seed, custom_data=""):
         new_seed = new_seed + custom_data
     return new_seed.__hash__()
 
-# uncomment to test
-# _generate_moons_at(sector=(-160.0, -160.0), sectors={"(-160.0, -160.0)": {"planet": {"position": (328923.2, 3829.1), "scale": 1.0}}})
+# Test code
+if __name__ == "__main__":
+    sectors={"(-160.0, -160.0)": {"planet": {"position": (328923.2, 3829.1), "scale": 1.0}}}
+    _generate_moons_at(sector=(-160.0, -160.0), sectors=sectors)
+    print(sectors)
