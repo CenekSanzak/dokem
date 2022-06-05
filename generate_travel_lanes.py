@@ -1,4 +1,4 @@
-def _generate_travel_lanes_at(sector: (float, float),
+def _generate_travel_lanes_at(sector: tuple[float, float],
                               sectors={}):
     neighbors = [(1, 0),
                  (1, 1),
