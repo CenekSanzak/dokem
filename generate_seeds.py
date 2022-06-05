@@ -1,7 +1,9 @@
 import random
 
+from typing import Tuple
 
-def _generate_seeds_at(sector: tuple[float, float],
+
+def _generate_seeds_at(sector: Tuple[float, float],
                        sectors={},
                        start_seed="world generation",
                        sector_size=1000.0,
@@ -27,7 +29,7 @@ def _generate_seeds_at(sector: tuple[float, float],
     for i in range(3):
         seed_position = (random.uniform(top_left[0], bottom_right[0]),
                          random.uniform(top_left[1], bottom_right[1]))
-    seeds.append(seed_position)
+        seeds.append(seed_position)
     sectors.update({str(sector): {"seeds": seeds}})
 
 
@@ -37,8 +39,9 @@ def make_seed_for(_x_id: int, _y_id: int, start_seed, custom_data=""):
         new_seed = new_seed + custom_data
     return new_seed.__hash__()
 
+
 # Test code
 if __name__ == "__main__":
-    sectors={}
-    _generate_seeds_at(sector=(-160.0, -160.0), sectors=sectors)
+    sectors = {}
+    _generate_seeds_at(sector=tuple[-160.0, -160.0], sectors=sectors)
     print(sectors)
