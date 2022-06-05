@@ -12,7 +12,6 @@ def _generate_moons_at(sector: (float, float),
                        planet_base_size=96):
     if str(sector) in sectors:
         if "moons" in sectors[str(sector)]:
-            print(sectors[str(sector)])
             return
 
         planet = sectors[str(sector)]["planet"]
@@ -22,7 +21,6 @@ def _generate_moons_at(sector: (float, float),
         random.seed(make_seed_for(sector[0], sector[1], start_seed, "moons"))
         moon_count = 0
         while random.uniform(0.0, 1.0) < moon_generation_chance or moon_count == max_moon_count:
-            print("bk")
             random_rotated = rotate_random((0.0, 1.0))
             scale = planet["scale"]
             random_offset = (random_rotated[0] * scale * planet_base_size * 3.0,
