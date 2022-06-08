@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://SpaceInfiniteGeneration/LayeredWorldGenerator.gd" type="Script" id=1]
+[ext_resource path="res://SpaceInfiniteGeneration/Shared/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SpaceInfiniteGeneration/Shared/GridDrawer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SpaceInfiniteGeneration/LayeredWorldGenerationOnCloud.gd" type="Script" id=4]
+
+[node name="LayeredWorldGenerator" type="Node2D"]
+position = Vector2( -1, 1 )
+script = ExtResource( 1 )
+sector_size = 10000.0
+sector_axis_count = 500
+show_debug = true
+max_asteroid_count = 100
+generate_on_cloud = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.0666667, 0.133333, 0.333333, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 1 )
+speed_max = 1350.0
+
+[node name="Camera2D" parent="Player" index="2"]
+zoom = Vector2( 10, 10 )
+
+[node name="GridDrawer" parent="." instance=ExtResource( 3 )]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource( 4 )
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+
+[editable path="Player"]

@@ -1,0 +1,61 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "WorldGenerator",
+"class": "BlueNoiseWorldGenerator",
+"language": "GDScript",
+"path": "res://SpaceInfiniteGeneration/BlueNoiseWorldGenerator.gd"
+}, {
+"base": "WorldGenerator",
+"class": "LayeredWorldGenerator",
+"language": "GDScript",
+"path": "res://SpaceInfiniteGeneration/LayeredWorldGenerator.gd"
+}, {
+"base": "LayeredWorldGenerator",
+"class": "PersistentWorldGenerator",
+"language": "GDScript",
+"path": "res://SpaceInfiniteGeneration/PersistentWorldGenerator.gd"
+}, {
+"base": "WorldGenerator",
+"class": "WhiteNoiseWorldGenerator",
+"language": "GDScript",
+"path": "res://SpaceInfiniteGeneration/WhiteNoiseWorldGenerator.gd"
+}, {
+"base": "Node2D",
+"class": "WorldGenerator",
+"language": "GDScript",
+"path": "res://SpaceInfiniteGeneration/Shared/WorldGenerator.gd"
+} ]
+_global_script_class_icons={
+"BlueNoiseWorldGenerator": "",
+"LayeredWorldGenerator": "",
+"PersistentWorldGenerator": "",
+"WhiteNoiseWorldGenerator": "",
+"WorldGenerator": ""
+}
+
+[application]
+
+config/name="ProcGen"
+run/main_scene="res://SpaceInfiniteGeneration/LayeredWorldGenerator.tscn"
+config/icon="res://icon.png"
+
+[global]
+
+main=false
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
