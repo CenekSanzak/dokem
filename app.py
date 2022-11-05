@@ -6,6 +6,10 @@ app = Flask(__name__)
 def index():
     print(request.cookies.get('flag'))
     return "Hello World!"
+@app.route("/owl")
+def index():
+    print(request.cookies.get('flag'))
+    return "Hello World!"
 
 # a flask route that defines an empty dictionary called sectors, calls generate function with sectors and returns sectors
 @app.route("/sectors/<float:sector_size>/<float:sector_margin_proportion>/<int:sector_axis_count>/<float:planet_generation_area_threshold>/<float:moon_generation_chance>/<int:max_moon_count>/<int:planet_base_size>/<float:asteroid_generation_chance>/<int:max_asteroid_count>")
