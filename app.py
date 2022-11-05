@@ -6,8 +6,9 @@ app = Flask(__name__)
 def index():
     print(request.cookies.get('flag'))
     return "Hello World!"
+
 @app.route("/owl")
-def index():
+def owl():
     print(request.cookies.get('flag'))
     return "Hello World!"
 
