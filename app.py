@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    print(request.cookies.get('flag'))
     return "Hello World!"
 
 # a flask route that defines an empty dictionary called sectors, calls generate function with sectors and returns sectors
